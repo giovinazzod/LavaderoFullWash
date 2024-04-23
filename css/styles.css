@@ -1,9 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+
+    font-family: "Inter";
     margin: 0;
     padding: 0;
 }
-
 main {
     padding-top: 40px;
 }
@@ -14,13 +14,16 @@ section {
 
 /* Header */
 header {
-    background-color: #333;
-    color: #fff;
+
+    background-color: #011638;
+    color: #EEF0F2;
     padding: 20px;
     text-align: right;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
+
 
 .header-logo {
     width: 400px;
@@ -79,6 +82,98 @@ footer img {
 /* Servicios */
 
 /* Contacto */
+
+#contacto {
+    background-color: #4889ae;
+    color: #fff;
+}
+
+#contacto h1 {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+
+}
+.map-container {
+    width: 100%;
+    padding: 10px;
+}
+.map-container p {
+    font-size: small;
+}
+
+#mapa {
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+
+#form-consulta {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+.container {
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.left-box {
+    text-align: left;
+    align-content: left;
+    /*box-sizing: border-box;*/
+    padding: 10px;
+    width: 100%;
+    /*background-size: contain*/
+    
+}
+
+
+.right-box {
+   /* text-align: left;*/
+     /*box-sizing: border-box;*/
+    padding: 10px;
+    width: 60%;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 20px;
+    /*background-size: contain*/
+}
+.right-box button {
+    width: 620px;
+    border-radius: 10px;
+    background-color: #011638;
+    color: #fff;
+    align-content: center;
+
+}
+
+.right-box button:hover {
+    background-color: #085582;
+    animation: 0.5s infinite Enviar;
+    border-radius: 10px;
+    color: #fff;
+    align-content: center;
+
+   
+}
+
+@keyframes Enviar {
+    0% {
+        transform: scalex(1.0);
+    }
+
+    50% {
+        transform: scalex(1.15);
+    }
+
+    100% {
+        transform: scalex(1.0);
+    }
+}
 
 /* Agenda */
 
