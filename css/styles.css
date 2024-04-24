@@ -14,14 +14,13 @@ section {
 
 /* Header */
 header {
-
     background-color: #011638;
     color: #EEF0F2;
     padding: 20px;
-    text-align: right;
     position: fixed;
     width: 100%;
     z-index: 1;
+
 }
 
 
@@ -80,6 +79,88 @@ footer img {
 /* Inicio */
 
 /* Servicios */
+
+
+/*--------------------------------------------------------------*/
+/* Sobre Nosotros */
+/* Estilos de títulos del section */
+
+#sobrenosotros h1, h2{
+   text-align: center;
+   margin: 30px;
+   
+}
+
+#sobrenosotros p {
+    font-size:larger;
+    text-align: justify;
+}
+
+#nosotros  {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+           
+}
+
+#nosotros1 {
+    width: 70%;
+    text-align: justify;
+
+ }
+
+#nosotros1 p{
+width: 100%;
+padding: 10px ;
+}
+
+
+#nosotros2 {
+    width: 30%;
+    align-content: center;
+ }
+
+#nosotros2 img{
+    width: 90%;
+    padding: 20px;
+}
+
+ #video {
+    text-align: center;
+       
+ }
+
+ #videovivo {
+    border-radius: 20px;
+ }
+
+ #equipo {
+    margin: 30px;
+ }
+
+ #equipo img{
+    padding: 15px;
+
+ }
+
+#empresas-amigas {
+    margin: 40px 0px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #4889AE;
+    align-items: center;
+    /* width: 140 px; */
+    /* text-align: center; */
+}
+
+#empresas-amigas img{
+    /* transition: 0.5; */
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: animate__fadeInDownBig;
+    animation-duration: 2s; /* don't forget to set a duration! */
+  
+}
 
 /* Contacto */
 
