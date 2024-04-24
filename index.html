@@ -38,14 +38,84 @@
 
         <section id="agenda">
             <h1>Agendá un turno</h1>
+
+            <div>
+                <div class="formulario">
+                    <span>Déjanos tus datos</span>
+                    <form id="formulario" action="#">
+                        <div class="campo">
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="campo">
+                            <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required></input>
+                        </div>
+                        <div class="campo">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <input type="text" name="servicio" id="servicio" placeholder="Elegir servicio..."
+                            list="servicios" class="form-select" />
+                        <datalist id="servicios">
+                            <option value="Limpieza Interior Express">$5.500</option>
+                            <option value="Limpieza Interior Full">$7.500</option>
+                            <option value="Limpieza Interior Premium">$9.800</option>
+                            <option value="Limpieza Exterior Express">$6.500</option>
+                            <option value="Limpieza Exterior Full">$7.900</option>
+                            <option value="Limpieza Exterior Premium">$10.500</option>
+                            <option value="Promo Express">$11.000</option>
+                            <option value="Promo Premium">$15.000</option>
+                        </datalist>
+
+                        <form action="#">
+                            <select name="servicios" id="servicios">
+                                <option selected="" disabled>Elegir servicio...</option>
+                                <option value="LimpiezaInteriorExpress">Limpieza Interior Express</option>
+                                <option value="LimpiezaInteriorFull">Limpieza Interior Full</option>
+                                <option value="LimpiezaInteriorPremium">Limpieza Interior Premium</option>
+                                <option value="LimpiezaExteriorExpress">Limpieza Exterior Express</option>
+                                <option value="LimpiezaExteriorFull">Limpieza Exterior Full</option>
+                                <option value="LimpiezaExteriorPremium">Limpieza Exterior Premium</option>
+                                <option value="PromoExpress">Promo Express</option>
+                                <option value="PromoPremium">Promo Premium</option>
+                            </select>
+                        </form>
+
+                    </form>
+                </div>
+            </div>
+            <div class="formulario">
+                <span>Elige una fecha y horario</span>
+
+                <!-- <div class="wrapper">
+                    
+                <div class="container">
+                    <div class="row">
+                        <div class='col-sm-12'>
+                            <div class="form-group">
+                                <div id='datetimepicker'>                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+                <div class="container">
+                    <div id="calendar"></div>
+                    <div id="time-slots"></div>
+                </div>
+                
+                <button id="confirm-button">Confirmar</button>
+
         </section>
+
 
         <footer>
             <span>
                 <div class="redes">
                     <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=541123932492" target="_blank"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i
+                            class="fa-brands fa-instagram fa-xl"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=541123932492" target="_blank"><i
+                            class="fa-brands fa-whatsapp fa-xl"></i></a>
                 </div>
             </span>
 
@@ -68,6 +138,145 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            // Aquí puedes agregar una función de JavaScript para manejar la selección de servicios, por ejemplo:
+
+            // Obtener el elemento select
+            const servicioSelect = document.getElementById('servicio');
+
+            // Manejar el evento change
+            servicioSelect.addEventListener('change', function () {
+                // Obtener el servicio seleccionado
+                const selectedService = servicioSelect.value;
+                console.log('Servicio seleccionado:', selectedService);
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                    inline: true,
+                    sideBySide: true
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker').datetimepicker();
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker').datetimepicker({
+                    inline: true,
+                    sideBySide: true,
+                    locale: 'de',
+                    format: 'DD.MM.YYYY'
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Función para obtener el mes actual en formato MM
+                function getFormattedMonth() {
+                    const today = new Date();
+                    const month = today.getMonth() + 1;
+                    return month < 10 ? '0' + month : '' + month;
+                }
+
+                // Función para obtener el día actual en formato DD
+                function getFormattedDay() {
+                    const today = new Date();
+                    const day = today.getDate();
+                    return day < 10 ? '0' + day : '' + day;
+                }
+
+                // Función para obtener la fecha actual en formato DD-MM-YYYY
+                function getCurrentDate() {
+                    const today = new Date();
+                    // return `${today.getFullYear()}-${getFormattedMonth()}-${getFormattedDay()}`;
+                    return `${getFormattedDay()}-${getFormattedMonth()}-${today.getFullYear()}`;
+                }
+
+                // Función para obtener una lista de fechas futuras
+                function getFutureDates(numDays) {
+                    const futureDates = [];
+                    for (let i = 1; i <= numDays; i++) {
+                        const futureDate = new Date();
+                        futureDate.setDate(futureDate.getDate() + i);
+                        futureDates.push(futureDate.toISOString().slice(0, 10));
+                    }
+                    return futureDates;
+                }
+
+                // Función para llenar el calendario con los días del mes actual y seleccionar la fecha actual
+                function fillCalendar() {
+                    const calendar = document.getElementById('calendar');
+                    const currentDate = getCurrentDate();
+                    const numDays = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate(); // Número de días en el mes actual
+                    const futureDates = getFutureDates(numDays);
+
+                    let calendarHTML = '';
+                    const dayNames = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']; // Nombres de los días de la semana
+                    for (let i = 1; i <= 7; i++) { // Comienza desde el lunes
+                        calendarHTML += `<div class="day day-name">${dayNames[i % 7]}</div>`; // Añade la clase day-name
+                    }
+                    for (let i = 1; i <= numDays; i++) {
+                        const date = `${new Date().getFullYear()}-${getFormattedMonth()}-${i < 10 ? '0' + i : i}`;
+                        const isSelected = date === currentDate ? 'selected' : '';
+                        calendarHTML += `<div class="day ${isSelected}" data-date="${date}">${i}</div>`;
+                    }
+                    calendar.innerHTML = calendarHTML;
+
+                    // Event listener para seleccionar una fecha
+                    const days = document.querySelectorAll('.day:not(.day-name)'); // Excluir los nombres de los días
+                    days.forEach(day => {
+                        day.addEventListener('click', function () {
+                            days.forEach(d => d.classList.remove('selected'));
+                            this.classList.add('selected');
+                        });
+                    });
+                }
+
+                // Función para llenar los horarios disponibles
+                function fillTimeSlots() {
+                    const timeSlots = document.getElementById('time-slots');
+                    const startTime = 9;
+                    const endTime = 18;
+
+                    let timeSlotsHTML = '';
+                    for (let i = startTime; i <= endTime; i++) {
+                        timeSlotsHTML += `
+                                            <div class="time-slot">
+                                              <input type="radio" id="time${i}" name="time" value="${i}:00">
+                                              <label for="time${i}">${i}:00</label>
+                                            </div>
+                                        `;
+                    }
+                    timeSlots.innerHTML = timeSlotsHTML;
+                }
+
+                fillCalendar();
+                fillTimeSlots();
+
+                // Event listener para el botón de confirmar
+                document.getElementById('confirm-button').addEventListener('click', function () {
+                    const selectedDate = document.querySelector('.day.selected');
+                    const selectedTime = document.querySelector('input[name="time"]:checked');
+                    if (selectedDate && selectedTime) {
+                        const confirmation = `Reservaste para el día ${selectedDate.dataset.date} a las ${selectedTime.value}!`;
+                        alert(confirmation);
+                    } else {
+                        alert('Por favor, seleccione un día y un horario.');
+                    }
+                });
+            });
+        </script>
+
     </main>
 
 </body>
