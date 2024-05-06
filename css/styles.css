@@ -109,6 +109,7 @@ footer img {
 .beneficios {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 50px;
 }
 
@@ -146,21 +147,6 @@ footer img {
     border-top-right-radius: 20px;
 }
 
-.serviciopromo {
-    width: 600px;
-    margin-bottom: 30px;
-    background-color: #4682b4;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.serviciopromo img {
-    width: 600px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
 .servicio h3 {
     color: #EEF0F2;
     margin-top: 20px;
@@ -187,6 +173,34 @@ footer img {
     border-radius: 5px;
 }
 
+.serviciopromo {
+    width: 600px;
+    margin-bottom: 30px;
+    background-color: #4682b4;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.serviciopromo img {
+    width: 600px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.serviciopromo h3 {
+    color: #EEF0F2;
+    margin-top: 20px;
+}
+
+.serviciopromo ul {
+    text-align: left;
+    color: #EEF0F2;
+}
+
+.serviciopromo:hover {
+    background-color: #5f9ea0;
+}
 
 /*--------------------------------------------------------------*/
 /* Sobre Nosotros */
