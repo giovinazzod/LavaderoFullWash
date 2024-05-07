@@ -19,22 +19,24 @@ section {
     width: 100%;
 }
 
+#inicio {
+    padding: 0;
+}
+
 /* Header */
-header {
+#header {
     background-color: #011638;
     color: #EEF0F2;
     padding: 20px;
     position: fixed;
     width: 100%;
     z-index: 1;
-
 }
 
-
-.header-logo {
+/* .header-logo {
     width: 400px;
     float: left;
-}
+} */
 
 nav {
     display: flex;
@@ -138,13 +140,12 @@ footer img {
     width: 400px;
     margin-bottom: 30px;
     background-color: #4682b4;
-    border: 1px solid #ccc;
     border-radius: 20px;
     text-align: center;
 }
 
 .servicio img {
-    width: 399px;
+    width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -173,35 +174,6 @@ footer img {
     color: #EEF0F2;
     padding: 1px 15px;
     border-radius: 5px;
-}
-
-.serviciopromo {
-    width: 600px;
-    margin-bottom: 30px;
-    background-color: #4682b4;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.serviciopromo img {
-    width: 600px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-.serviciopromo h3 {
-    color: #EEF0F2;
-    margin-top: 20px;
-}
-
-.serviciopromo ul {
-    text-align: left;
-    color: #EEF0F2;
-}
-
-.serviciopromo:hover {
-    background-color: #5f9ea0;
 }
 
 /*--------------------------------------------------------------*/
@@ -580,14 +552,134 @@ select {
 }
 
 /* Media queries */
-@media screen and (max-width: 100%) {
+@media screen and (min-width: 991px) and (max-width: 100%) {
     /* Aquí van los estilos específicos para PC de escritorio */
+    .header-mobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Aquí van los estilos específicos para tablets */
+    .header-mobile {
+        display: none;
+    }
+
+    .header-logo {
+        float: left;
+        min-width: 35%;
+        height: 100%;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        min-width: 65%;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    /* Títulos de secciones en h2 */
+    h2 {
+        font-size: 30px !important;
+        font-weight: bolder;
+    }
+
+    .beneficios {
+        row-gap: 1em;
+    }
+
+    .item-beneficio {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        width: 310px;
+    }
+
+    .item-beneficio img {
+        width: 150px;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    /* Aquí van los estilos específicos para tablets */
-}
-
-@media screen and (max-width: 576px) {
     /* Aquí van los estilos específicos para dispositivos móviles */
+    
+    .header-desktop {
+        display: none;
+    }
+    
+    .header-mobile {
+        background-color: #011638;
+        color: #EEF0F2;
+        padding: 20px;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .hamburguesa {
+        background: transparent;
+        border: none;
+    }
+
+    .hamburguesa img {
+        width: 48px;
+    }
+
+    .header-logo {
+        max-width: 50%;
+        float: left;
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+        justify-content: space-between;
+    }
+
+     /* Títulos de secciones en h2 */
+     h2 {
+        font-size: 30px !important;
+        font-weight: bolder;
+    }
+
+    .beneficios {
+        row-gap: 1em;
+    }
+
+    .item-beneficio {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        width: 310px;
+    }
+
+    .item-beneficio img {
+        width: 150px;
+    }
+
+    #videovivo {
+        width: 100%;
+    } 
+
 }
