@@ -18,31 +18,23 @@
 
 <body>
     <header id="header" class="header-desktop">
-        <nav>
-            <img class="header-logo" src="img/header-logo.png" alt="Header logo">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#agenda">Agendá un turno</a></li>
-                <li><a href="#sobrenosotros">Sobre nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <header class="header-mobile">
-        <nav>
-            <img class="header-logo" src="img/header-logo.png" alt="Header logo">
-            <button class="hamburguesa">
-                <img src="img/menu-hamburguesa.svg" alt="Menu Hamburguesa">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+                    
+            <a class="navbar-brand  mr-auto" href="#inicio">
+                <img class="header-logo" src="img/header-logo.png" alt="Header logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobrenosotros">Sobre nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#agenda">Agendá un turno</a></li>
-            </ul> -->
-        </nav>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item nav-link"><a href="#inicio">Inicio</a></li>
+                <li class="nav-item nav-link"><a href="#servicios">Servicios</a></li>
+                <li class="nav-item nav-link"><a href="#agenda">Agendá un turno</a></li>
+                <li class="nav-item nav-link"><a href="#sobrenosotros">Sobre nosotros</a></li>
+                <li class="nav-item nav-link"><a href="#contacto">Contacto</a></li>
+              </ul>
+            </div>
+          </nav>
     </header>
 
     <main>
@@ -417,26 +409,23 @@
 
         <footer>
             <span>
-                <div class="redes">
+                <div>
                     <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank"><i
-                            class="fa-brands fa-instagram fa-xl"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone=541123932492" target="_blank"><i
-                            class="fa-brands fa-whatsapp fa-xl"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=541123932492" target="_blank"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
                 </div>
             </span>
 
             <span>
                 <ul>
-                    <h6>Navegación</h6>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#agenda">Agendá un turno</a></li>
-                    <li><a href="#sobrenosotros">Sobre nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+                    <h4>Navegación</h4>
+                    <li class="nav-item nav-link"><a href="#inicio">Inicio</a></li>
+                    <li class="nav-item nav-link"><a href="#servicios">Servicios</a></li>
+                    <li class="nav-item nav-link"><a href="#agenda">Agendá un turno</a></li>
+                    <li class="nav-item nav-link"><a href="#sobrenosotros">Sobre nosotros</a></li>
+                    <li class="nav-item nav-link"><a href="#contacto">Contacto</a></li>
+                  </ul>
             </span>
-
             <span>
                 <img src="img/footer-logo.png" alt="Footer logo">
             </span>

@@ -11,7 +11,7 @@ main {
 }
 
 section {
-    padding: 60px;
+    padding: 70px;
 }
 
 .pagina_inicio {
@@ -31,20 +31,21 @@ h2 {
 }
 
 
-/* Header */
+/* Header y nav-bar */
 #header {
     background-color: #011638;
-    color: #EEF0F2;
-    padding: 10px;
+    padding-right: 15px;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-/* .header-logo {
-    width: 400px;
+.header-logo {
+    width: 200px;
     float: left;
-} */
+}
 
 nav {
     display: flex;
@@ -65,44 +66,46 @@ nav ul li {
     margin-right: 20px;
 }
 
-nav ul li a {
+nav ul li a,
+span ul li a {
     color: #fff;
     text-decoration: none;
 }
 
-/* Footer */
-.redes {
-    float: left;
+nav ul li a:hover,
+span ul li a:hover {
+    color: #4682b4;
+    text-decoration: none;
 }
 
+nav-item nav-link {
+    line-height: 0.5;
+}
+
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 20px;
+    padding: 10px;
     position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center; 
 }
 
-footer ul {
-    list-style-type: none;
-    align-content: center;
+footer span {
+    /* display: flex;  */
+    align-items: center;
+    display: inline-block;
 }
 
 footer img {
-    width: 250px;
-    position: absolute;
-    top: 50%;
-    /* Centra verticalmente la imagen */
-
-    right: 20px;
-    /* La sitúa a 20px del borde derecho del footer */
-
-    transform: translateY(-50%);
-    /* Centra verticalmente la imagen */
+    width: 200px;
+    height: auto;
 }
 
 /* Inicio */
-
 #porqueelegir {
     display: flex;
     flex-direction: column;
@@ -230,6 +233,7 @@ footer img {
 
 #videovivo {
     border-radius: 20px;
+    width: 50%;
 }
 
 #equipo {
@@ -430,7 +434,7 @@ footer img {
     margin-left: auto;
 }
 
-.error{
+.error {
     color: yellow;
     margin-bottom: 5px;
 }
@@ -501,33 +505,7 @@ select {
         min-width: 35%;
         height: 100%;
     }
-    
-    nav {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: right;
-        justify-content: space-between;
-        width: 100%;
-    }
-    
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        min-width: 65%;
-    }
-    
-    nav ul li {
-        display: inline;
-        margin-right: 20px;
-    }
-    
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-    }
-    
+
     /* Títulos de secciones en h2 */
     h2 {
         font-size: 30px !important;
@@ -552,44 +530,14 @@ select {
 
 @media screen and (max-width: 768px) {
     /* Aquí van los estilos específicos para dispositivos móviles */
-    
-    .header-desktop {
-        display: none;
-    }
-    
-    .header-mobile {
-        background-color: #011638;
-        color: #EEF0F2;
-        padding: 20px;
-        position: fixed;
-        width: 100%;
-        z-index: 1;
-    }
-
-    .hamburguesa {
-        background: transparent;
-        border: none;
-    }
-
-    .hamburguesa img {
-        width: 48px;
-    }
 
     .header-logo {
         max-width: 50%;
         float: left;
     }
-    
-    nav {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: right;
-        justify-content: space-between;
-    }
 
-     /* Títulos de secciones en h2 */
-     h2 {
+    /* Títulos de secciones en h2 */
+    h2 {
         font-size: 30px !important;
         font-weight: bolder;
     }
@@ -611,6 +559,5 @@ select {
 
     #videovivo {
         width: 100%;
-    } 
-
+    }
 }
