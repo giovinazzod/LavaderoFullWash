@@ -91,7 +91,7 @@ footer {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 }
 
 footer span {
@@ -129,7 +129,6 @@ footer img {
 }
 
 /* Servicios */
-
 .contenedor {
     display: flex;
     justify-content: space-around;
@@ -388,6 +387,35 @@ footer img {
 }
 
 /* Agenda */
+.agenda {
+    width: 75%;
+    margin: 50px auto;
+    background-color: #4682b4;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.agenda-subcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.agenda-titulo {
+    margin-right: 10px;
+    text-align: center;
+}
+
+.agenda-imagen {
+    max-width: 100px;
+    height: auto;
+    width: 45px;
+    margin-left: auto;
+}
+
 #agenda h1 {
     text-align: center;
     width: 100%;
@@ -401,42 +429,66 @@ footer img {
     text-align: center;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: none;
-    border-radius: 10px;
+.contenedorAgenda {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
-.agenda {
-    width: 75%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #4682b4;
-    border-radius: 10px;
-    color: white; /*Color de la letra*/
+.div-izquierdo,
+.div-derecho {
+    width: calc(50% - 10px);
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.agenda-subcontainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.div-abajo {
+    width: 100%;
 }
 
-.agenda-titulo {
-    text-align: center;
-}
-
-.agenda-imagen {
-    width: 50px;
-    margin-left: auto;
+.contenedorAgenda,
+.div-izquierdo,
+.div-derecho,
+.div-abajo {
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .error {
-    color: yellow;
+    color: #870F0F;
     margin-bottom: 5px;
+    font-size: small;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row .col-6 {
+    width: calc(50% - 10px);
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+/* Inputs de servicios de la section agenda un turno */
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: block;
+    cursor:pointer;
+    color: #fff;
+    padding: 5px;
+    font-size: medium;
+}
+
+input[type="radio"]:checked + label,
+input[type="radio"]:hover + label {
+    color: white;
+    background-color: #5f9ea0;
+    border-radius: 5px;
 }
 
 /*Formularios*/
@@ -526,6 +578,17 @@ select {
     .item-beneficio img {
         width: 150px;
     }
+
+    /* Agenda */
+    .contenedorAgenda {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-izquierdo,
+    .div-derecho {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -559,5 +622,21 @@ select {
 
     #videovivo {
         width: 100%;
+    }
+
+    /* Agenda */
+    .contenedorAgenda {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-izquierdo,
+    .div-derecho {
+        width: 100%;
+    }
+
+    label {
+        cursor:none;
+        font-size: small;
     }
 }

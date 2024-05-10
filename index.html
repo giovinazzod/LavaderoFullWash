@@ -19,22 +19,22 @@
 <body>
     <header id="header" class="header-desktop">
         <nav class="navbar navbar-expand-lg navbar-dark">
-                    
+
             <a class="navbar-brand  mr-auto" href="#inicio">
                 <img class="header-logo" src="img/header-logo.png" alt="Header logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item nav-link"><a href="#inicio">Inicio</a></li>
-                <li class="nav-item nav-link"><a href="#servicios">Servicios</a></li>
-                <li class="nav-item nav-link"><a href="#agenda">Agendá un turno</a></li>
-                <li class="nav-item nav-link"><a href="#sobrenosotros">Sobre nosotros</a></li>
-                <li class="nav-item nav-link"><a href="#contacto">Contacto</a></li>
-              </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-link"><a href="#inicio">Inicio</a></li>
+                    <li class="nav-item nav-link"><a href="#servicios">Servicios</a></li>
+                    <li class="nav-item nav-link"><a href="#agenda">Agendá un turno</a></li>
+                    <li class="nav-item nav-link"><a href="#sobrenosotros">Sobre nosotros</a></li>
+                    <li class="nav-item nav-link"><a href="#contacto">Contacto</a></li>
+                </ul>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <main>
@@ -187,105 +187,111 @@
         <hr>
         <section id="agenda">
             <h2>Agendá un turno</h2>
-            <div>
-                <div class="agenda">
-                    <div class="agenda-subcontainer">
-                        <h4 class="agenda-titulo">Dejanos tus datos:</h4>
-                        <img class="agenda-imagen" src="img/personal-information.png" alt="">
-                    </div>
-                    <form id="formulario" action="#">
-                        <div class="campo">
-                            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+            <div class="agenda">
+                <div class="contenedorAgenda">
+                    <div class="div-izquierdo">
+                        <div class="agenda-subcontainer">
+                            <h4 class="agenda-titulo">Dejanos tus datos:</h4>
+                            <img class="agenda-imagen" src="img/personal-information.png" alt="">
                         </div>
-                        <div class="error" id="error-nombre"></div>
-                        <div class="campo">
-                            <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required></input>
-                        </div>
-                        <div class="error" id="error-telefono"></div>
-                        <div class="campo">
-                            <input type="text" id="patente" name="patente" placeholder="Patente del Vehículo" required>
-                        </div>
-                        <div class="error" id="error-patente"></div>
-                        <div class="campo">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="error" id="error-email"></div>
-                        <br>
+                        <form id="formulario" action="#">
+                            <div class="campo">
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                            </div>
+                            <div class="error" id="error-nombre"></div>
+                            <div class="campo">
+                                <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required></input>
+                            </div>
+                            <div class="error" id="error-telefono"></div>
+                            <div class="campo">
+                                <input type="text" id="patente" name="patente" placeholder="Patente del Vehículo" required>
+                            </div>
+                            <div class="error" id="error-patente"></div>
+                            <div class="campo">
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="error" id="error-email"></div>
+                            <br>
 
+                            <div class="agenda-subcontainer">
+                                <h4 class="agenda.titulo">Elegí fecha y horario:</h4>
+                                <img class="agenda-imagen" src="img/time-and-calendar.png" alt="">
+                            </div>
+                            <div class="row justify-content-around">
+                                <div class="col-6">
+                                    <div class="campo">
+                                        <input type="date" id="fecha" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="campo">
+                                        <select type="time" id="hora" required>
+                                            <option selected="" disabled>--:--</option>
+                                            <option value="hora">09:00</option>
+                                            <option value="hora">09:30</option>
+                                            <option value="hora">10:00</option>
+                                            <option value="hora">10:30</option>
+                                            <option value="hora">11:00</option>
+                                            <option value="hora">11:30</option>
+                                            <option value="hora">12:00</option>
+                                            <option value="hora">12:30</option>
+                                            <option value="hora">13:00</option>
+                                            <option value="hora">13:30</option>
+                                            <option value="hora">14:00</option>
+                                            <option value="hora">14:30</option>
+                                            <option value="hora">15:00</option>
+                                            <option value="hora">15:30</option>
+                                            <option value="hora">16:00</option>
+                                            <option value="hora">16:30</option>
+                                            <option value="hora">17:00</option>
+                                            <option value="hora">17:30</option>
+                                            <option value="hora">18:00</option>
+                                            <option value="hora">18:30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="error" id="error-fecha-hora"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="div-derecho">
                         <div class="agenda-subcontainer">
                             <h4 class="agenda-titulo">Seleccioná un servicio:</h4>
                             <img class="agenda-imagen" src="img/services.png" alt="">
                         </div>
-                        <br>
                         <div class="row justify-content-around">
-                            <div class="col-6">
-                                <label><input type="radio" name="option" value="option1"> Limpieza Interior Express -
-                                    $5.000</label>
-                                <label><input type="radio" name="option" value="option2"> Limpieza Interior Full -
-                                    $7.500</label>
-                                <label><input type="radio" name="option" value="option3"> Limpieza Interior Premium -
-                                    $9.800</label>
-                                <label><input type="radio" name="option" value="option4"> Promo Express -
-                                    $11.000</label>
-                            </div>
-                            <div class="col-6">
-                                <label><input type="radio" name="option" value="option5"> Limpieza Exterior Express -
-                                    $6.500</label>
-                                <label><input type="radio" name="option" value="option6"> Limpieza Exterior Full -
-                                    $7.900</label>
-                                <label><input type="radio" name="option" value="option7"> Limpieza Exterior Premium -
-                                    $10.500</label>
-                                <label><input type="radio" name="option" value="option8"> Promo Premium -
-                                    $15.000</label>
-                            </div>
-                        </div>
-                        <br>
+                            <input type="radio" id="option1" name="option" value="option1">
+                            <label for="option1">Limpieza Interior Express - $5.000</label>
 
-                        <div class="agenda-subcontainer">
-                            <h4 class="agenda.titulo">Elegí fecha y horario:</h4>
-                            <img class="agenda-imagen" src="img/time-and-calendar.png" alt="">
-                        </div>
-                        <div class="row justify-content-around">
-                            <div class="col-6">
-                                <div class="campo">
-                                    <input type="date" id="fecha" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="campo">
-                                    <select type="time" id="hora" required>
-                                        <option selected="" disabled>--:--</option>
-                                        <option value="hora">09:00</option>
-                                        <option value="hora">09:30</option>
-                                        <option value="hora">10:00</option>
-                                        <option value="hora">10:30</option>
-                                        <option value="hora">11:00</option>
-                                        <option value="hora">11:30</option>
-                                        <option value="hora">12:00</option>
-                                        <option value="hora">12:30</option>
-                                        <option value="hora">13:00</option>
-                                        <option value="hora">13:30</option>
-                                        <option value="hora">14:00</option>
-                                        <option value="hora">14:30</option>
-                                        <option value="hora">15:00</option>
-                                        <option value="hora">15:30</option>
-                                        <option value="hora">16:00</option>
-                                        <option value="hora">16:30</option>
-                                        <option value="hora">17:00</option>
-                                        <option value="hora">17:30</option>
-                                        <option value="hora">18:00</option>
-                                        <option value="hora">18:30</option>
-                                    </select>
-                                </div>
-                            </div>
+                            <input type="radio" id="option2" name="option" value="option2">
+                            <label for="option2">Limpieza Interior Full - $7.500</label>
 
-                            <div class="d-grid gap-2">
-                                <br>
-                                <button class="btn btn-primary" id="btn-agendar" type="button"
-                                    onclick="alertar()">Agendar turno</button>
-                            </div>
+                            <input type="radio" id="option3" name="option" value="option3">
+                            <label for="option3">Limpieza Interior Premium - $9.800</label>
+
+                            <input type="radio" id="option4" name="option" value="option4">
+                            <label for="option4">Promo Express - $11.000</label>
+
+                            <input type="radio" id="option5" name="option" value="option5">
+                            <label for="option5">Limpieza Exterior Express - $6.500</label>
+
+                            <input type="radio" id="option6" name="option" value="option6">
+                            <label for="option6">Limpieza Exterior Full - $7.900</label>
+
+                            <input type="radio" id="option7" name="option" value="option7">
+                            <label for="option7">Limpieza Exterior Premium - $10.500</label>
+
+                            <input type="radio" id="option8" name="option" value="option8">
+                            <label for="option8">Promo Premium - $15.000</label>
                         </div>
-                    </form>
+                        <div class="error" id="error-servicioElegido"></div>
+                    </div>
+                    <div class="div-abajo">
+                        <div class="d-grid gap-2">
+                            <br>
+                            <button class="btn btn-primary" id="btn-agendar" type="button" onclick="alertar()">Agendar turno</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -424,7 +430,7 @@
                     <li class="nav-item nav-link"><a href="#agenda">Agendá un turno</a></li>
                     <li class="nav-item nav-link"><a href="#sobrenosotros">Sobre nosotros</a></li>
                     <li class="nav-item nav-link"><a href="#contacto">Contacto</a></li>
-                  </ul>
+                </ul>
             </span>
             <span>
                 <img src="img/footer-logo.png" alt="Footer logo">
@@ -435,8 +441,8 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </main>
-    <script src="js/agendaValidator.js"></script>
-    <script src="js/formContacto.js"></script>
 </body>
+    <script src="js/agendaValidations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </html>
