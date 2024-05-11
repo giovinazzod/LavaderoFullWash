@@ -318,7 +318,6 @@
 
             <h2>Nuestro Equipamiento</h2>
             <div id="video">
-                <!-- Tendríamos que cambiar el width del video porque rompe el responsive del mobile -->
                 <video id="videovivo" src="img/Video Comprimido.mp4" autoplay loop muted>Your
                     browser does not support the video tag </video>
             </div>
@@ -357,7 +356,7 @@
                             width="600" height="450" style="border:20px;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
-
+        
                         <h5>Dirección</h5>
                         <p>Av. Monroe 2855, Ciudad Autónoma de Buenos Aires</p>
                         <br>
@@ -369,21 +368,20 @@
                         <br>
                         <h5>Horarios de atención</h5>
                         <p>Lunes a Viernes de 8 a 22 h <br> Sábados y Domingos de 8 a 14 h <br>Feriados Cerrado</p>
-
+        
                     </div>
                 </div>
-
+        
                 <div class="right-box">
                     <h3>Dejanos tu consulta</h3>
                     <br>
                     <form action="#" class="formcontacto" id="formcontacto" method="get" novalidate>
                         <div class="formcontrol">
                             <label for="nombre"></label>
-                            <input type="text" name="nombre" id="nombre" required placeholder="Nombre y Apellido"
-                                size="65">
+                            <input type="text" name="nombre" id="nombreyapellido" required placeholder="Nombre y Apellido" size="65">
                         </div>
-
-                        <div class="error" id="error-firstname"></div>
+        
+                        <div class="error" id="error-nombreyapellido"></div>
                         <div class="formcontrol">
                             <label for="celular"></label>
                             <input type="text" name="celular" id="celular" required placeholder="Celular" size="65">
@@ -391,82 +389,25 @@
                         <div class="error" id="error-celular"></div>
                         <div class="formcontrol">
                             <label for="email"></label>
-                            <input type="email" name="email" id="email" required placeholder="E-mail" size="65">
+                            <input type="email" name="email" id="mail" required placeholder="E-mail" size="65">
                         </div>
-
-                        <div class="error" id="error-email"></div>
+        
+                        <div class="error" id="error-mail"></div>
                         <div class="formcontrol">
                             <label for="asunto"></label>
                             <input type="text" name="asunto" id="asunto" required placeholder="Asunto" size="65">
                         </div>
-
-                        <div class="error" id="error-asunto"></div>
-                        <div class="formcontrol">
-                            <label for="mensaje"></label>
-                            <textarea name="mensaje" id="mensaje" required placeholder="Mensaje" cols="68"
-                                rows="10"></textarea>
-                        </div>
+                        <!--
+                                <div class="error" id="error-asunto"></div>
+                                -->
+                                <div class="formcontrol">
+                                    <label for="mensaje"></label>
+                                    <textarea name="mensaje" id="mensaje" required placeholder="Mensaje" cols="68"
+                                        rows="10"></textarea>
+                                </div>
+                                
                         <br><br>
-<<<<<<< HEAD
-                        <button type="button" onclick="validarFormulario()">Enviar</button>
-                        <script src="formcontacto.js">
-                        </script>
-                    </form>
-        
-                </div>
-        
-            </div>
-        
-            </div>
-        
-        </section>
-
-        <section id="agenda">
-            <h1>Agendá un turno</h1>
-
-            <div>
-                <div class="formulario">
-                    <span>Déjanos tus datos</span>
-                    <form id="formulario" action="#">
-                        <div class="campo">
-                            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                        </div>
-                        <div class="campo">
-                            <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required></input>
-                        </div>
-                        <div class="campo">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <input type="text" name="servicio" id="servicio" placeholder="Elegir servicio..."
-                            list="servicios" class="form-select" />
-                        <datalist id="servicios">
-                            <option value="Limpieza Interior Express">$5.500</option>
-                            <option value="Limpieza Interior Full">$7.500</option>
-                            <option value="Limpieza Interior Premium">$9.800</option>
-                            <option value="Limpieza Exterior Express">$6.500</option>
-                            <option value="Limpieza Exterior Full">$7.900</option>
-                            <option value="Limpieza Exterior Premium">$10.500</option>
-                            <option value="Promo Express">$11.000</option>
-                            <option value="Promo Premium">$15.000</option>
-                        </datalist>
-
-                        <form action="#">
-                            <select name="servicios" id="servicios">
-                                <option selected="" disabled>Elegir servicio...</option>
-                                <option value="LimpiezaInteriorExpress">Limpieza Interior Express</option>
-                                <option value="LimpiezaInteriorFull">Limpieza Interior Full</option>
-                                <option value="LimpiezaInteriorPremium">Limpieza Interior Premium</option>
-                                <option value="LimpiezaExteriorExpress">Limpieza Exterior Express</option>
-                                <option value="LimpiezaExteriorFull">Limpieza Exterior Full</option>
-                                <option value="LimpiezaExteriorPremium">Limpieza Exterior Premium</option>
-                                <option value="PromoExpress">Promo Express</option>
-                                <option value="PromoPremium">Promo Premium</option>
-                            </select>
-                        </form>
-
-=======
-                        <button type="submit">Enviar</button>
->>>>>>> 5c2f3904901272ec38f640921eb5a8c41daf6dd9
+                        <button type="button" onclick="alertar()">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -503,5 +444,6 @@
 </body>
     <script src="js/agendaValidations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script src="js/contactoValidations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </html>
