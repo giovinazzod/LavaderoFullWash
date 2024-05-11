@@ -1,10 +1,10 @@
-function validarNombre() {
+function validarNombreYApellido() {
     var nombreInput = document.getElementById("nombreyapellido");
     var errorNombre = document.getElementById("error-nombreyapellido");
     var nombre = nombreInput.value.trim();
 
     if (nombre.length < 3 || nombre.length > 45) {
-        errorNombre.textContent = "Ingrese un nombre válido (entre 3 y 45 caracteres)";
+        errorNombre.textContent = "* Ingrese un nombre válido (entre 3 y 45 caracteres)";
         return false;
     } else {
         errorNombre.textContent = "";
@@ -12,13 +12,13 @@ function validarNombre() {
     }
 }
 
-function validarTelefono() {
+function validarTelefonoConsulta() {
     var telefonoInput = document.getElementById("celular");
     var errorTelefono = document.getElementById("error-celular");
     var telefono = telefonoInput.value.trim();
 
     if (!(/^\d{8,11}$/.test(telefono))) {
-        errorTelefono.textContent = "Ingrese un celular válido (entre 8 y 11 dígitos)";
+        errorTelefono.textContent = "* Ingrese un celular válido (entre 8 y 11 dígitos)";
         return false;
     } else {
         errorTelefono.textContent = "";
@@ -26,7 +26,7 @@ function validarTelefono() {
     }
 }
 
-function validarEmail() {
+function validarEmailConsulta() {
     var emailInput = document.getElementById("mail");
     var errorEmail = document.getElementById("error-mail");
     var email = emailInput.value.trim();
@@ -34,7 +34,7 @@ function validarEmail() {
     var emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
 
     if (!emailRegex.test(email)) {
-        errorEmail.textContent = "Ingrese un email válido (usuario@email.com)";
+        errorEmail.textContent = "* Ingrese un email válido (usuario@email.com)";
         return false;
     } else {
         errorEmail.textContent = "";
@@ -42,17 +42,17 @@ function validarEmail() {
     }
 }
 
-function validarFormulario() {
-    var nombreValido = validarNombre();
-    var telefonoValido = validarTelefono();
-    var emailValido = validarEmail();
+function validarFormularioConsulta() {
+    var nombreValido = validarNombreYApellido();
+    var telefonoValido = validarTelefonoConsulta();
+    var emailValido = validarEmailConsulta();
 
     // Si todas las validaciones pasan ok, devuelve true
     return nombreValido && telefonoValido && emailValido;
 }
 
-function alertar() {
-    if (validarFormulario()) {
+function consultar() {
+    if (validarFormularioConsulta()) {
         Swal.fire({
             icon: 'success',
             title: '¡Consulta recibida!',

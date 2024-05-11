@@ -377,22 +377,23 @@
                     <br>
                     <form action="#" class="formcontacto" id="formcontacto" method="get" novalidate>
                         <div class="formcontrol">
-                            <label for="nombre"></label>
-                            <input type="text" name="nombre" id="nombreyapellido" required placeholder="Nombre y Apellido" size="65">
+                            <label for="nombreyapellido"></label>
+                            <input type="text" name="nombreyapellido" id="nombreyapellido" required placeholder="Nombre y Apellido" size="65">
                         </div>
-        
                         <div class="error" id="error-nombreyapellido"></div>
+
                         <div class="formcontrol">
                             <label for="celular"></label>
                             <input type="text" name="celular" id="celular" required placeholder="Celular" size="65">
                         </div>
                         <div class="error" id="error-celular"></div>
+
                         <div class="formcontrol">
                             <label for="email"></label>
                             <input type="email" name="email" id="mail" required placeholder="E-mail" size="65">
                         </div>
-        
                         <div class="error" id="error-mail"></div>
+
                         <div class="formcontrol">
                             <label for="asunto"></label>
                             <input type="text" name="asunto" id="asunto" required placeholder="Asunto" size="65">
@@ -407,7 +408,7 @@
                                 </div>
                                 
                         <br><br>
-                        <button type="button" onclick="alertar()">Enviar</button>
+                        <button id="btn-consultar" type="button" onclick="consultar()">Enviar</button>
                     </form>
                 </div>
             </div>
