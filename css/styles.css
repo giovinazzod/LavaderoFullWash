@@ -456,9 +456,10 @@ footer img {
 }
 
 .error {
-    color: #870F0F;
+    color: #FFFFFF;
     margin-bottom: 5px;
     font-size: small;
+    font-weight: 200;
 }
 
 .row {

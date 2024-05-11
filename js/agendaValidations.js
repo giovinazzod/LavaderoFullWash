@@ -4,7 +4,7 @@ function validarNombre() {
     var nombre = nombreInput.value.trim();
 
     if (nombre.length < 3 || nombre.length > 45) {
-        errorNombre.textContent = "Ingrese un nombre válido (entre 3 y 45 caracteres)";
+        errorNombre.textContent = "* Ingrese un nombre válido (entre 3 y 45 caracteres)";
         return false;
     } else {
         errorNombre.textContent = "";
@@ -16,9 +16,10 @@ function validarTelefono() {
     var telefonoInput = document.getElementById("telefono");
     var errorTelefono = document.getElementById("error-telefono");
     var telefono = telefonoInput.value.trim();
+    // var telRegex = /^\d{8,11}$/
 
-    if (!(/^\d{8,11}$/.test(telefono))) {
-        errorTelefono.textContent = "Ingrese un teléfono válido (entre 8 y 11 dígitos)";
+    if (!(/^\d{8,11}$/.test(telefono))) { // if (!(telRegex.test(telefono)))
+        errorTelefono.textContent = "* Ingrese un teléfono válido (entre 8 y 11 dígitos)";
         return false;
     } else {
         errorTelefono.textContent = "";
@@ -34,7 +35,7 @@ function validarEmail() {
     var emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/;
 
     if (!emailRegex.test(email)) {
-        errorEmail.textContent = "Ingrese un email válido (usuario@email.com)";
+        errorEmail.textContent = "* Ingrese un email válido (usuario@email.com)";
         return false;
     } else {
         errorEmail.textContent = "";
@@ -51,7 +52,7 @@ function validarPatente() {
     var patenteNuevaRegex = /^[a-zA-Z]{2}[\d]{3}[a-zA-Z]{2}$/;
 
     if (!patenteViejaRegex.test(patente) && !patenteNuevaRegex.test(patente)) {
-        errorPatente.textContent = "Ingrese una patente válida (Formatos: AAA123 o AA123BB)";
+        errorPatente.textContent = "* Ingrese una patente válida (Formatos: AAA123 o AA123BB)";
         return false;
     } else {
         errorPatente.textContent = "";
@@ -71,11 +72,11 @@ console.log("fecha/Hora: ", fecha, hora);
     var ahora = new Date();
 
     if (fecha === "" || hora === "") {
-        errorFechaHora.textContent = "Por favor, seleccione fecha y hora";
+        errorFechaHora.textContent = "* Por favor, seleccione fecha y hora";
         return false;
     } 
     if (fecha < ahora) {
-        errorFechaHora.textContent = "Por favor, seleccione una fecha y hora futuros";
+        errorFechaHora.textContent = "* Por favor, seleccione una fecha y hora futuros";
         return false;
     }
     else {
@@ -97,7 +98,7 @@ function validarServicio() {
     });
 
     if (!seleccionada) {
-        errorServicio.textContent = "Por favor, seleccione un servicio";
+        errorServicio.textContent = "* Por favor, seleccione un servicio";
         return false;
     } else {
         errorServicio.textContent = "";
