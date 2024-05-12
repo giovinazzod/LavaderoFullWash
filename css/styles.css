@@ -606,6 +606,7 @@ select {
         font-weight: bolder;
     }
 
+    /* Beneficios */
     .beneficios {
         row-gap: 1em;
     }
@@ -636,7 +637,7 @@ select {
     }
 
     #nosotros2 img{
-        width: 50%
+        width: 70%
     }
 
     #videovivo {
@@ -647,9 +648,18 @@ select {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        
+        margin-bottom: 20%;
     }
+
+    #empresas-amigas img {
+        padding: 10px;
+    }
+
     /* Agenda */
+    .agenda {
+        width: 100%;
+        }
+        
     .contenedorAgenda {
         flex-direction: column;
         align-items: center;
