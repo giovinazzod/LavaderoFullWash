@@ -235,15 +235,6 @@ footer img {
     width: 50%;
 }
 
-#equipo {
-    margin: 30px;
-}
-
-#equipo img {
-    padding: 15px;
-
-}
-
 #empresas-amigas {
     margin: 40px 0px;
     display: inline-flex;
@@ -255,19 +246,10 @@ footer img {
 }
 
 #empresas-amigas img:hover {
-    /* display: inline-block;
-   margin: 0 0.5rem; */
     animation: animate__swing;
-    /* animation-duration: 20s;  */
     cursor: grabbing;
 
 }
-
-/* #animate__animated animate__swing:hover{
-    animation: animate__swing; 
-   animation-duration: 2s;
-} */
-
 /* CONTACTO*/
 /*Fondo de pagina contacto */
 #contacto {
@@ -580,6 +562,24 @@ select {
         width: 150px;
     }
 
+    #nosotros {
+        flex-direction:column;
+    }
+
+    #nosotros1 {
+        width: 100%;
+    }
+
+    #nosotros2 {
+        width: 100%;  
+        text-align: center; 
+        margin-bottom: 15px;    
+    }
+
+    #nosotros2 img{
+        width: 30%
+    }
+
     /* Agenda */
     .contenedorAgenda {
         flex-direction: column;
@@ -606,6 +606,7 @@ select {
         font-weight: bolder;
     }
 
+    /* Beneficios */
     .beneficios {
         row-gap: 1em;
     }
@@ -621,11 +622,44 @@ select {
         width: 150px;
     }
 
+    #nosotros {
+        flex-direction:column;
+    }
+
+    #nosotros1 {
+        width: 100%;
+    }
+
+    #nosotros2 {
+        width: 100%;  
+        text-align: center; 
+        margin-bottom: 15px;    
+    }
+
+    #nosotros2 img{
+        width: 70%
+    }
+
     #videovivo {
         width: 100%;
     }
 
+    #empresas-amigas {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20%;
+    }
+
+    #empresas-amigas img {
+        padding: 10px;
+    }
+
     /* Agenda */
+    .agenda {
+        width: 100%;
+        }
+        
     .contenedorAgenda {
         flex-direction: column;
         align-items: center;
@@ -639,5 +673,23 @@ select {
     label {
         cursor:none;
         font-size: small;
+    }
+
+    .containercontacto {
+        flex-direction:column-reverse;
+        align-items: center;
+        justify-content: center;       
+    }
+
+    .left-box {
+        text-align: center;
+        width: 100%;
+        align-content: center;
+    }
+
+    .right-box {
+        text-align: center;
+        width: 100%;
+        align-content: center;
     }
 }
