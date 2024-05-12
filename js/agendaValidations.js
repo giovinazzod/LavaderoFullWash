@@ -65,7 +65,7 @@ function validarFechaYHora() {
     var horaInput = document.getElementById("hora");
     var errorFechaHora = document.getElementById("error-fecha-hora");
 
-console.log("fecha/Hora: ", fecha, hora);
+    console.log("fecha/Hora: ", fecha, hora);
 
     var fecha = fechaInput.value.trim();
     var hora = horaInput.value.trim();
@@ -74,7 +74,7 @@ console.log("fecha/Hora: ", fecha, hora);
     if (fecha === "" || hora === "") {
         errorFechaHora.textContent = "* Por favor, seleccione fecha y hora";
         return false;
-    } 
+    }
     if (fecha < ahora) {
         errorFechaHora.textContent = "* Por favor, seleccione una fecha y hora futuros";
         return false;
@@ -83,7 +83,7 @@ console.log("fecha/Hora: ", fecha, hora);
         errorFechaHora.textContent = "";
         return true;
     }
-    
+
 }
 
 function validarServicio() {
@@ -91,7 +91,7 @@ function validarServicio() {
     var errorServicio = document.getElementById("error-servicioElegido");
     var seleccionada = false;
 
-    opciones.forEach(function(opcion) {
+    opciones.forEach(function (opcion) {
         if (opcion.checked) {
             seleccionada = true;
         }
@@ -117,8 +117,8 @@ function validarFormulario() {
     // Si todas las validaciones pasan ok, devuelve true
     return nombreValido && telefonoValido && emailValido && patenteValida && servicioValido && fechaHoraValida;
 }
-
-function alertar() {
+// alertar
+function agendarTurno() {
     if (validarFormulario()) {
         Swal.fire({
             icon: 'success',
@@ -126,7 +126,21 @@ function alertar() {
             text: 'Gracias por agendar tu turno.',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Aceptar',
-            // background: "#fff url(img/logo.png)",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Restablezco valores de los campos
+                document.getElementById("nombre").value = "";
+                document.getElementById("telefono").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("patente").value = "";
+                document.getElementById("fecha").value = "";
+                document.getElementById("hora").value = "";
+
+                var opciones = document.querySelectorAll('input[type="radio"][name="option"]');
+                opciones.forEach(function (opcion) {
+                    opcion.checked = false;
+                });
+            };
         });
     }
 }

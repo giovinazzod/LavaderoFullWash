@@ -59,7 +59,15 @@ function consultar() {
             text: 'A la brevedad nos contactaremos contigo.',
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Aceptar',
-            // background: "#fff url(img/logo.png)",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Restablezco valores de los campos
+                document.getElementById("nombreyapellido").value = "";
+                document.getElementById("celular").value = "";
+                document.getElementById("mail").value = "";
+                document.getElementById("asunto").value = "";
+                document.getElementById("mensaje").value = "";
+            };
         });
     }
 }
