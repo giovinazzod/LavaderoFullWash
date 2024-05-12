@@ -674,4 +674,22 @@ select {
         cursor:none;
         font-size: small;
     }
+
+    .containercontacto {
+        flex-direction:column-reverse;
+        align-items: center;
+        justify-content: center;       
+    }
+
+    .left-box {
+        text-align: center;
+        width: 100%;
+        align-content: center;
+    }
+
+    .right-box {
+        text-align: center;
+        width: 100%;
+        align-content: center;
+    }
 }
