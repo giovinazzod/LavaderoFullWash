@@ -67,13 +67,14 @@ nav ul li {
 }
 
 nav ul li a,
-span ul li a {
+div ul li a {
     color: #fff;
     text-decoration: none;
+    text-align: center;
 }
 
 nav ul li a:hover,
-span ul li a:hover {
+div ul li a:hover {
     color: #4682b4;
     text-decoration: none;
 }
@@ -94,10 +95,26 @@ footer {
     align-items: center;
 }
 
-footer span {
+footer div {
     /* display: flex;  */
     align-items: center;
     display: inline-block;
+    text-align: center;
+}
+
+footer div h4 {
+    margin-top: 0;
+}
+
+footer div ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin-top: 0;
+}
+
+footer div li {
+    display: inline-block;
+    margin: 0 10px;
 }
 
 footer img {
