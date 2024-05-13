@@ -250,6 +250,7 @@ footer img {
     cursor: grabbing;
 
 }
+
 /* CONTACTO*/
 /*Fondo de pagina contacto */
 #contacto {
@@ -454,6 +455,7 @@ footer img {
     padding: 0 5px;
     box-sizing: border-box;
 }
+
 /* Inputs de servicios de la section agenda un turno */
 input[type="radio"] {
     display: none;
@@ -461,17 +463,21 @@ input[type="radio"] {
 
 label {
     display: block;
-    cursor:pointer;
+    cursor: pointer;
     color: #fff;
     padding: 5px;
     font-size: medium;
 }
 
-input[type="radio"]:checked + label,
-input[type="radio"]:hover + label {
+input[type="radio"]:checked+label,
+input[type="radio"]:hover+label {
     color: white;
     background-color: #5f9ea0;
     border-radius: 5px;
+}
+
+.campo {
+    margin-top: 20px;
 }
 
 /*Formularios*/
@@ -523,6 +529,7 @@ select {
 
 /* Media queries */
 @media screen and (min-width: 991px) and (max-width: 100%) {
+
     /* Aquí van los estilos específicos para PC de escritorio */
     .header-mobile {
         display: none;
@@ -530,6 +537,7 @@ select {
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
+
     /* Aquí van los estilos específicos para tablets */
     .header-mobile {
         display: none;
@@ -563,7 +571,7 @@ select {
     }
 
     #nosotros {
-        flex-direction:column;
+        flex-direction: column;
     }
 
     #nosotros1 {
@@ -571,12 +579,12 @@ select {
     }
 
     #nosotros2 {
-        width: 100%;  
-        text-align: center; 
-        margin-bottom: 15px;    
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
     }
 
-    #nosotros2 img{
+    #nosotros2 img {
         width: 30%
     }
 
@@ -623,7 +631,7 @@ select {
     }
 
     #nosotros {
-        flex-direction:column;
+        flex-direction: column;
     }
 
     #nosotros1 {
@@ -631,12 +639,12 @@ select {
     }
 
     #nosotros2 {
-        width: 100%;  
-        text-align: center; 
-        margin-bottom: 15px;    
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
     }
 
-    #nosotros2 img{
+    #nosotros2 img {
         width: 70%
     }
 
@@ -658,8 +666,8 @@ select {
     /* Agenda */
     .agenda {
         width: 100%;
-        }
-        
+    }
+
     .contenedorAgenda {
         flex-direction: column;
         align-items: center;
@@ -671,14 +679,14 @@ select {
     }
 
     label {
-        cursor:none;
+        cursor: none;
         font-size: small;
     }
 
     .containercontacto {
-        flex-direction:column-reverse;
+        flex-direction: column-reverse;
         align-items: center;
-        justify-content: center;       
+        justify-content: center;
     }
 
     .left-box {

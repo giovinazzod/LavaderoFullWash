@@ -65,25 +65,34 @@ function validarFechaYHora() {
     var horaInput = document.getElementById("hora");
     var errorFechaHora = document.getElementById("error-fecha-hora");
 
-    console.log("fecha/Hora: ", fecha, hora);
-
     var fecha = fechaInput.value.trim();
     var hora = horaInput.value.trim();
+    var fechaHoraFormateada = formatearFechaYHora(fecha, hora);
     var ahora = new Date();
 
-    if (fecha === "" || hora === "") {
+    if (fecha === "" || ( hora === "" || hora == "--:--")) {
         errorFechaHora.textContent = "* Por favor, seleccione fecha y hora";
         return false;
-    }
-    if (fecha < ahora) {
-        errorFechaHora.textContent = "* Por favor, seleccione una fecha y hora futuros";
+    } else if (fechaHoraFormateada <= ahora) {
+        errorFechaHora.textContent = "* Por favor, seleccione una fecha futura";
         return false;
-    }
-    else {
+    } else {
         errorFechaHora.textContent = "";
         return true;
     }
+}
 
+function formatearFechaYHora(fecha, hora) {
+    var fechaCompleta = fecha.split("-");
+    var anio = parseInt(fechaCompleta[0]);
+    var mes = parseInt(fechaCompleta[1]) - 1; // En JavaScript los meses van de 0 a 11
+    var dia = parseInt(fechaCompleta[2]);
+
+    var horaCompleta = hora.split(":");
+    var horas = parseInt(horaCompleta[0]);
+    var minutos = parseInt(horaCompleta[1]);
+
+    return new Date(anio, mes, dia, horas, minutos);
 }
 
 function validarServicio() {
