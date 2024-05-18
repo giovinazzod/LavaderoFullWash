@@ -96,7 +96,7 @@ footer {
 }
 
 footer div {
-    /* display: flex;  */
+    display: flex;
     align-items: center;
     display: inline-block;
     text-align: center;
@@ -120,6 +120,17 @@ footer div li {
 footer img {
     width: 200px;
     height: auto;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-icons a {
+    text-decoration: none;
+    color: #4682b4;
 }
 
 /* Inicio */
@@ -623,6 +634,12 @@ select {
     .header-logo {
         max-width: 50%;
         float: left;
+    }
+
+    .footer-icons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
     /* Títulos de secciones en h2 */
