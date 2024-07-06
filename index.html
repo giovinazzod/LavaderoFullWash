@@ -20,8 +20,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand  mr-auto" href="#inicio">
                 <img class="header-logo" src="img/header-logo.png" alt="Header logo"></a>
-            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -195,18 +195,20 @@
                         </div>
                         <form id="formulario" action="#">
                             <div class="campo">
+                                <input type="text" id="patente" name="patente" placeholder="Patente del Vehículo" required>
+                            </div>
+                            <div class="error" id="error-patente"></div>
+
+                            <div class="campo">
                                 <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                             </div>
                             <div class="error" id="error-nombre"></div>
+
                             <div class="campo">
                                 <input type="number" id="telefono" name="telefono" placeholder="Teléfono" required>
                             </div>
                             <div class="error" id="error-telefono"></div>
-                            <div class="campo">
-                                <input type="text" id="patente" name="patente" placeholder="Patente del Vehículo"
-                                    required>
-                            </div>
-                            <div class="error" id="error-patente"></div>
+                            
                             <div class="campo">
                                 <input type="email" id="email" name="email" placeholder="Email" required>
                             </div>
@@ -291,6 +293,10 @@
                             <br>
                             <button class="btn btn-primary" id="btn-agendar" type="button"
                                 onclick="agendarTurno()">Agendar turno</button>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+                                <a href="gestionTurnos.html" class="btn btn-dark">Gestión de Turnos</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -417,9 +423,12 @@
 
         <footer id="footer">
             <div class="footer-icons">
-                <a href="https://www.facebook.com/lavaderoFullWash" target="_blank"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                <a href="https://www.instagram.com/lavaderoFullWash" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=5491139038587" target="_blank"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
+                <a href="https://www.facebook.com/lavaderoFullWash" target="_blank"><i
+                        class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="https://www.instagram.com/lavaderoFullWash" target="_blank"><i
+                        class="fa-brands fa-instagram fa-xl"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5491139038587" target="_blank"><i
+                        class="fa-brands fa-whatsapp fa-xl"></i></a>
             </div>
 
             <div>
