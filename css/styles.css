@@ -734,4 +734,13 @@ select {
         width: 100%;
         align-content: center;
     }
+
+    /* CRUD */
+    .inline-elements {
+        display: flex;
+        align-items: center;
+    }
+    .inline-elements input[type="text"] {
+        margin-right: 10px;
+    }
 }
