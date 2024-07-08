@@ -1,4 +1,4 @@
-const BASEURL = 'http://127.0.0.1:5000';
+const BASEURL = 'https://giovinazzod.pythonanywhere.com';
 
 async function fetchData(url, method, data = null) {
     const options = {
@@ -33,11 +33,10 @@ function buscarTurno() {
         return;
     }
 
-    //fetch(`http://127.0.0.1:5000/api/getTurnoByPatente/${patente_vehiculo}`)
-    //fetchData(BASEURL + `/api/getTurnoByPatente/${patente_vehiculo}`, 'GET')
-    fetch(`https://giovinazzod.pythonanywhere.com/api/getTurnoByPatente/${patente_vehiculo}`)
+    fetch(BASEURL + `/api/getTurnoByPatente/${patente_vehiculo}`)
         .then(response => response.json())
         .then(data => {
+
             if (data.length === 0) {
                 alert("No se encontraron turnos para la patente ingresada.");
             } else {
@@ -60,46 +59,25 @@ function mostrarTurnos(turnos) {
     const tbody = document.getElementById('tbody-table');
     tbody.innerHTML = ""; // Limpiar la tabla
 
-    // turnos = [
-    //     {
-    //       "fecha": "2023-09-26",
-    //       "hora": "9:30:00",
-    //       "id": 1,
-    //       "mail_persona": "adunphy0@linkedin.com",
-    //       "nombre_persona": "Archibald Dunphy",
-    //       "patente_vehiculo": "BS755DT",
-    //       "servicio_costo": "5000.00",
-    //       "servicio_descripcion": "Limpieza Interior Express",
-    //       "telefono_persona": "4425-8276"
-    //     },
-    //     {
-    //       "fecha": "2024-01-08",
-    //       "hora": "12:00:00",
-    //       "id": 2,
-    //       "mail_persona": "ahanburry1@timesonline.co.uk",
-    //       "nombre_persona": "Armando Hanburry",
-    //       "patente_vehiculo": "HY932VQ",
-    //       "servicio_costo": "7500.00",
-    //       "servicio_descripcion": "Limpieza Interior Full",
-    //       "telefono_persona": "4812-6967"
-    //     },
-    //     {
-    //       "fecha": "2023-08-11",
-    //       "hora": "14:00:00",
-    //       "id": 5,
-    //       "mail_persona": "cfedorchenko4@answers.com",
-    //       "nombre_persona": "Costa Fedorchenko",
-    //       "patente_vehiculo": "RW135QJ",
-    //       "servicio_costo": "6500.00",
-    //       "servicio_descripcion": "Limpieza Exterior Express",
-    //       "telefono_persona": "4614-5039"
-    //     }
-    //   ]
+    // Convertir el objeto a un array
+    if (!Array.isArray(turnos)) {
+        turnos = [turnos];
+    }
 
     turnos.forEach(turno => {
-        const tr = document.createElement('tr');
 
-        tr.innerHTML = `
+        if (turno.message) {
+            const tr = document.createElement('tr');
+            const td = document.createElement('td');
+            td.colSpan = 9; // Ajusta esto según la cantidad de columnas en tu tabla
+            td.textContent = 'No se encontraron registros';
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+
+        } else {
+            const tr = document.createElement('tr');
+
+            tr.innerHTML = `
             <td>${turno.fecha}</td>
             <td>${turno.hora}</td>
             <td>${turno.patente_vehiculo}</td>
@@ -109,20 +87,24 @@ function mostrarTurnos(turnos) {
             <td>${turno.servicio_descripcion}</td>
             <td>${turno.servicio_costo}</td>
             <td>
-                <button onclick="editarTurno(${turno.id})">Editar</button>
-                <button onclick="eliminarTurno(${turno.id})">Eliminar</button>
+                <a href="#" onclick="editarTurno(${turno.id})" title="Editar">
+                    <i class="fas fa-edit fa-lg" style="color: #011638;"></i>
+                </a>
+                <a href="#" onclick="eliminarTurno(${turno.id})" title="Eliminar">
+                    <i class="fas fa-trash-alt fa-lg" style="color: #011638;"></i>
+                </a>
             </td>
-        `;
-
-        tbody.appendChild(tr);
+            `;
+            tbody.appendChild(tr);
+        }
     });
 }
 
-function editarTurno(id){
+function editarTurno(id) {
     let turnos = JSON.parse(localStorage.getItem('turnos'));
     //se utiliza el metodo find para poder asegurarnos que exista un turno con el id que queremos editar.
-    let turnoAActualizar = turnos.find(turno => turno.patente===patente_vehiculo);
-    if(turnoAActualizar){
+    let turnoAActualizar = turnos.find(turno => turno.id === id);
+    if (turnoAActualizar) {
         //Se buscan los elementos HTML del input
         const inputNombre = document.getElementById('nombre_persona').value.trim();
         const inputTelefono = document.getElementById('telefono_persona').value.trim();
@@ -131,7 +113,7 @@ function editarTurno(id){
         const inputFecha = document.getElementById('fecha').value;
         const inputHora = document.getElementById('hora').value;
         const inputServicio = document.querySelector('input[name="option"]:checked').nextSibling.textContent.split(' - ')[0];
-    
+
         //Se cargan los inputs con los valores del turno encontrado
         inputId.value = turnoAActualizar.id;
         inputTitle.value = turnoAActualizar.title;
@@ -143,81 +125,78 @@ function editarTurno(id){
 }
 
 function eliminarTurno(id) {
-    fetch(`/api/deleteTurno/${id}`, {
-        method: 'DELETE'
-    })
-        .then(response => {
-            if (response.ok) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Turno eliminado con éxito.',
-                    text: 'Gracias por agendar tu turno.',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Aceptar',
-                })
-
-                alert("Turno eliminado con éxito.");
-                buscarTurno(); // Refrescar la lista de turnos
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error al eliminar el turno.',
-                    text: 'Por favor, intente nuevamente.',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Aceptar',
-                })
-            }
-        })
-        .catch(error => {
-            console.error("Error al eliminar el turno:", error);
-            Swal.fire({
-                icon: 'error',
-                title: 'Error al eliminar el turno.',
-                text: 'Por favor, intente nuevamente.',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            })
-        });
+    Swal.fire({
+        icon: 'warning',
+        title: '¿Está seguro de eliminar el turno?',
+        text: 'Esta acción no se puede deshacer',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'Eliminar',
+        showCancelButton: true,
+        cancelButtonColor: '#3085d6',
+        cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            let response = await fetchData(`${BASEURL}/api/deleteTurno/${id}`, 'DELETE');
+            showMovies();
+            Swal.fire(response.message, "Turno eliminado", "success");
+        }
+    });
 }
 
-function agendarTurno() {
+function crearTurno() {
     const nombre = document.getElementById('nombre').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
     const patente = document.getElementById('patente').value.trim();
     const email = document.getElementById('email').value.trim();
     const fecha = document.getElementById('fecha').value;
     const hora = document.getElementById('hora').value;
-    const servicio = document.querySelector('input[name="option"]:checked').nextSibling.textContent.split(' - ')[0];
-    const costo = document.querySelector('input[name="option"]:checked').nextSibling.textContent.split(' - ')[1].replace('$', '').trim();
+    let servicio_descripcion = "";
+    let servicio_costo = "";
+
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (selectedOption) {
+        const label = selectedOption.nextElementSibling.textContent;
+        const [servicio, costo] = label.split(' - ');
+
+        servicio_descripcion = servicio.trim();
+        servicio_costo = costo.replace('$', '').replace('.', '').trim();
+
+    }
 
     const data = {
-        nombre: nombre,
-        telefono: telefono,
-        patente: patente,
-        email: email,
+        nombre_persona: nombre,
+        telefono_persona: telefono,
+        patente_vehiculo: patente,
+        mail_persona: email,
         fecha: fecha,
         hora: hora,
-        servicio: servicio,
-        costo: costo
+        servicio_descripcion: servicio_descripcion,
+        servicio_costo: servicio_costo
     };
 
-    fetch('http://127.0.0.1:5000/api/createTurno', {
+    fetch(BASEURL + '/api/crearTurno', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al agendar el turno');
-            }
-            return response.json();
-        })
         .then(data => {
-            console.log('Turno creado correctamente:', data.message);
+            Swal.fire({
+                icon: 'success',
+                title: '¡Formulario recibido!',
+                text: 'Gracias por agendar tu turno.',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar',
+            })
         })
         .catch(error => {
-            console.error('Error al agendar el turno:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al crear el turno',
+                text: 'Por favor, intente nuevamente',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar',
+            })
         });
 }

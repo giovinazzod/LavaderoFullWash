@@ -126,30 +126,37 @@ function validarFormulario() {
     // Si todas las validaciones pasan ok, devuelve true
     return nombreValido && telefonoValido && emailValido && patenteValida && servicioValido && fechaHoraValida;
 }
-// alertar
+
+function handleAgendarTurno() {
+    // Llama a la función de validación
+    const isValid = validarFormulario();
+
+    // Si la validación es exitosa, llama a la función para crear el turno
+    if (isValid) {
+        crearTurno();
+    } else {
+        console.log('La validación falló');
+    }
+}
+
 function agendarTurno() {
     if (validarFormulario()) {
-        Swal.fire({
-            icon: 'success',
-            title: '¡Formulario recibido!',
-            text: 'Gracias por agendar tu turno.',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Aceptar',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Restablezco valores de los campos
-                document.getElementById("nombre").value = "";
-                document.getElementById("telefono").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("patente").value = "";
-                document.getElementById("fecha").value = "";
-                document.getElementById("hora").value = "";
+        crearTurno();
+        // .then((result) => {
+        //     if (result.isConfirmed) {
+        //         // Restablezco valores de los campos
+        //         document.getElementById("nombre").value = "";
+        //         document.getElementById("telefono").value = "";
+        //         document.getElementById("email").value = "";
+        //         document.getElementById("patente").value = "";
+        //         document.getElementById("fecha").value = "";
+        //         document.getElementById("hora").value = "";
 
-                var opciones = document.querySelectorAll('input[type="radio"][name="option"]');
-                opciones.forEach(function (opcion) {
-                    opcion.checked = false;
-                });
-            };
-        });
+        //         var opciones = document.querySelectorAll('input[type="radio"][name="option"]');
+        //         opciones.forEach(function (opcion) {
+        //             opcion.checked = false;
+        //         });
+        //     };
+        // });
     }
 }
