@@ -736,11 +736,12 @@ select {
     }
 
     /* CRUD */
-    .inline-elements {
+    .inline-elementsCrud {
         display: flex;
         align-items: center;
+        display: flex;
     }
-    .inline-elements input[type="text"] {
+    .inline-elementsCrud input[type="text"] {
         margin-right: 10px;
     }
 }

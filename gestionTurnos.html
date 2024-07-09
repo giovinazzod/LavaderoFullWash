@@ -20,8 +20,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand  mr-auto" href="#inicio">
                 <img class="header-logo" src="img/header-logo.png" alt="Header logo"></a>
-            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -38,15 +38,15 @@
 
     <main>
 
-        <section id="form" class="container ">
+        <section id="formCrud" class="container ">
             <h2 class="search-title">Gestión de turnos</h2>
 
-            <section class="inline-elements">
+            <section class="inline-elementsCrud">
                 <input type="text" id="patente" placeholder="Ingresar patente">
                 <input type="button" value="Buscar" onclick="buscarTurno()">
             </section>
         </section>
-        <section id="list" class="container">
+        <section id="listCrud" class="container">
             <table id="list-table" class="table">
                 <thead>
                     <tr>
@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody id="tbody-table">
-                    
+
                 </tbody>
             </table>
         </section>
@@ -71,9 +71,12 @@
 
     <footer id="footer">
         <div class="footer-icons">
-            <a href="https://www.facebook.com/lavaderoFullWash" target="_blank"><i class="fa-brands fa-facebook fa-xl"></i></a>
-            <a href="https://www.instagram.com/lavaderoFullWash" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=5491139038587" target="_blank"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
+            <a href="https://www.facebook.com/lavaderoFullWash" target="_blank"><i
+                    class="fa-brands fa-facebook fa-xl"></i></a>
+            <a href="https://www.instagram.com/lavaderoFullWash" target="_blank"><i
+                    class="fa-brands fa-instagram fa-xl"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=5491139038587" target="_blank"><i
+                    class="fa-brands fa-whatsapp fa-xl"></i></a>
         </div>
 
         <div>
@@ -91,6 +94,135 @@
         </div>
 
     </footer>
+
+    <!-- Modal para editar turno -->
+    <div class="modal fade" id="modalEditarTurno" tabindex="-1" aria-labelledby="modalEditarTurnoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarTurnoLabel">Editar Turno</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="agenda">
+                        <div class="contenedorAgenda">
+                            <div class="div-izquierdo">
+                                <div class="agenda-subcontainer">
+                                    <h4 class="agenda-titulo">Editar datos:</h4>
+                                    <img class="agenda-imagen" src="img/personal-information.png" alt="">
+                                </div>
+                                <form id="formularioEditar" action="#">
+                                    <div class="campo">
+                                        <input type="text" id="patente" name="patente"
+                                            placeholder="Patente del Vehículo" required>
+                                    </div>
+                                    <div class="error" id="error-patente"></div>
+
+                                    <div class="campo">
+                                        <input type="text" id="nombre" name="nombre" placeholder="Nombre"
+                                            required>
+                                    </div>
+                                    <div class="error" id="error-nombre"></div>
+
+                                    <div class="campo">
+                                        <input type="number" id="telefono" name="telefono" placeholder="Teléfono"
+                                            required>
+                                    </div>
+                                    <div class="error" id="error-telefono"></div>
+
+                                    <div class="campo">
+                                        <input type="email" id="email" name="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="error" id="error-email"></div>
+                                    <br>
+
+                                    <div class="agenda-subcontainer">
+                                        <h4 class="agenda.titulo">Editar fecha y horario:</h4>
+                                        <img class="agenda-imagen" src="img/time-and-calendar.png" alt="">
+                                    </div>
+                                    <div class="row justify-content-around">
+                                        <div class="col-6">
+                                            <div class="campo">
+                                                <input type="date" id="fecha" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="campo">
+                                                <select id="hora" required>
+                                                    <option selected disabled value="">-- Seleccione la hora --</option>
+                                                    <option value="09:00:00">09:00</option>
+                                                    <option value="09:30:00">09:30</option>
+                                                    <option value="10:00:00">10:00</option>
+                                                    <option value="10:30:00">10:30</option>
+                                                    <option value="11:00:00">11:00</option>
+                                                    <option value="11:30:00">11:30</option>
+                                                    <option value="12:00:00">12:00</option>
+                                                    <option value="12:30:00">12:30</option>
+                                                    <option value="13:00:00">13:00</option>
+                                                    <option value="13:30:00">13:30</option>
+                                                    <option value="14:00:00">14:00</option>
+                                                    <option value="14:30:00">14:30</option>
+                                                    <option value="15:00:00">15:00</option>
+                                                    <option value="15:30:00">15:30</option>
+                                                    <option value="16:00:00">16:00</option>
+                                                    <option value="16:30:00">16:30</option>
+                                                    <option value="17:00:00">17:00</option>
+                                                    <option value="17:30:00">17:30</option>
+                                                    <option value="18:00:00">18:00</option>
+                                                    <option value="18:30:00">18:30</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="error" id="error-fecha-hora"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="div-derecho">
+                                <div class="agenda-subcontainer">
+                                    <h4 class="agenda-titulo">Seleccioná un servicio:</h4>
+                                    <img class="agenda-imagen" src="img/services.png" alt="">
+                                </div>
+                                <div class="row justify-content-around">
+                                    <input type="radio" id="option1" name="option" value="option1">
+                                    <label for="option1">Limpieza Interior Express - $5.000</label>
+
+                                    <input type="radio" id="option2" name="option" value="option2">
+                                    <label for="option2">Limpieza Interior Full - $7.500</label>
+
+                                    <input type="radio" id="option3" name="option" value="option3">
+                                    <label for="option3">Limpieza Interior Premium - $9.800</label>
+
+                                    <input type="radio" id="option4" name="option" value="option4">
+                                    <label for="option4">Promo Express - $11.000</label>
+
+                                    <input type="radio" id="option5" name="option" value="option5">
+                                    <label for="option5">Limpieza Exterior Express - $6.500</label>
+
+                                    <input type="radio" id="option6" name="option" value="option6">
+                                    <label for="option6">Limpieza Exterior Full - $7.900</label>
+
+                                    <input type="radio" id="option7" name="option" value="option7">
+                                    <label for="option7">Limpieza Exterior Premium - $10.500</label>
+
+                                    <input type="radio" id="option8" name="option" value="option8">
+                                    <label for="option8">Promo Premium - $15.000</label>
+                                </div>
+                                <div class="error" id="error-servicioElegido"></div>
+                            </div>
+                            <div class="div-abajo">
+                                <div class="d-grid gap-2">
+                                    <br>
+                                    <button class="btn btn-primary" id="btn-guardar" type="button"
+                                        onclick="guardarCambios()">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/colapsarMenu.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
